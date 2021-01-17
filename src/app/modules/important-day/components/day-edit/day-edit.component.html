@@ -1,0 +1,53 @@
+<div class="day-edit">
+  <h2 class="title">Добавить собитие</h2>
+
+  <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit()" *ngIf="form">
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Название собития</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Тип собития</mat-label>
+      <mat-select formControlName="type" (selectionChange)="initForm($event.value)">
+        <mat-option value="holidays">Праздничные дни</mat-option>
+        <mat-option value="event">Мероприятия</mat-option>
+        <mat-option value="other-day">Пометки / Другое</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill"
+                    class="form-control"
+                    *ngIf="form?.get('budget')">
+      <mat-label>Бюджет</mat-label>
+      <input type="number" matInput formControlName="budget">
+      <span matSuffix>$</span>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill"
+                    class="form-control"
+                    *ngIf="form?.get('address')">
+      <mat-label>Куда идти?</mat-label>
+      <input matInput formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill"
+                    class="form-control"
+                    *ngIf="form?.get('time')">
+      <mat-label>Во сколько?</mat-label>
+      <input matInput formControlName="time">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill"
+                    class="form-control"
+                    *ngIf="form?.get('description')">
+      <mat-label>Введите текст</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-raised-button color="warn" type="button">Отмена</button>
+      <button mat-raised-button color="primary">Сохранить</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+.day-edit {
+  padding-top: 20px;
+
+  .title {
+    margin-bottom: 12px;
+  }
+
+  .form-control {
+    width: 300px;
+    display: block;
+
+    mat-hint {
+      color: #f44336;
+    }
+  }
+
+  .actions {
+    width: 300px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

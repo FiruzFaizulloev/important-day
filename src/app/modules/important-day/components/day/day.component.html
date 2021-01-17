@@ -1,0 +1,33 @@
+<div class="day">
+  <div class="calendar">
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Выберите дату</mat-label>
+      <input matInput [matDatepicker]="picker" [formControl]="date" readonly>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="primary" [disabled]="date.invalid" (click)="addEvent()">Добавить</button>
+    </div>
+  </div>
+  <div class="events">
+    <div class="event-item" *ngFor="let item of importantDays; let i=index">
+      <div class="info">
+        <b class="title">{{item.title}}</b>
+        <p class="field" *ngIf="item.budget">Бюджет: {{item.budget}}$</p>
+        <p class="field" *ngIf="item.address">Адрес: {{item.address}}</p>
+        <p class="field" *ngIf="item.time">Время: {{item.time}}</p>
+        <p class="field" *ngIf="item.description">{{item.description}}</p>
+      </div>
+      <div class="actions">
+        <button mat-icon-button (click)="edit(item)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="delete(item, i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

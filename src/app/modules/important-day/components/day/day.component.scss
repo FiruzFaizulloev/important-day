@@ -1,0 +1,50 @@
+.day {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 20px;
+
+  .calendar {
+    margin-right: 10px;
+  }
+
+  .events {
+    border: 1px solid #666;
+    border-radius: 6px;
+    width: 500px;
+
+    .event-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #666;
+
+      &:last-child {
+        border: none;
+      }
+
+      .info {
+        padding: 10px;
+        width: 100%;
+
+        .title {
+          margin-bottom: 4px;
+          display: block;
+        }
+
+        .field {
+          font-size: 14px;
+        }
+      }
+
+      .actions {
+        display: none;
+        padding: 6px;
+      }
+
+      &:hover {
+        .actions {
+          display: flex;
+        }
+      }
+    }
+  }
+}
